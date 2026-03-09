@@ -1,10 +1,11 @@
 #root {
-
   text-align: center;
 }
 
-body{
+html, body{
    background-color: rgb(37, 33, 33);
+   height: 100%;
+
 }
 
 h1 {

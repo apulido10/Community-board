@@ -1,30 +1,37 @@
-# Web Development Project 1 - *Name of App Here*
+# Web Development Project 2 - *FlashCards*
 
 Submitted by: **Alexander Pulido**
 
-This web app: **Community Board**
+This web app: ****
 
-Time spent: **4** hours spent in total
+Time spent: **7** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [x] **The app has a cohesive, unique theme for events or resources relevant to a specific community**
-  - [x] Header/title describing the theme is displayed
-- [x] **At least 10 unique events or resources are displayed in a responsive card format**
-  - [x] There are at least 10 cards displayed 
-  - [x] The cards should be displayed in an organized format (ex. a grid, or in one line)
-  - [x] Each card should include some information about the event or resource
 
+- [x ] **The app displays the title of the card set, a short description, and the total number of cards**
+  - [x ] Title of card set is displayed 
+  - [x ] A short description of the card set is displayed 
+  - [x ] A list of card pairs is created
+  - [x ] The total number of cards in the set is displayed 
+  - [ x] Card set is represented as a list of card pairs (an array of dictionaries where each dictionary contains the question and answer is perfectly fine)
+- [x ] **A single card at a time is displayed**
+  - [x ] Only one half of the information pair is displayed at a time
+- [x ] **Clicking on the card flips the card over, showing the corresponding component of the information pair**
+  - [x ] Clicking on a card flips it over, showing the back with corresponding information 
+  - [ x] Clicking on a flipped card again flips it back, showing the front
+- [x ] **Clicking on the next button displays a random new card**
 
 The following **optional** features are implemented:
 
-- [x] Buttons or links to a related resources are on each card component
-  - [x] All cards have buttons or links in addition to text
-- [x] The site is responsive for both desktop and mobile formats
-  - [x] Web app is shown in a mobile format
-  - [ ] **Video Walkthrough Special Instructions**: To ease the grading process, please use Chrome Developer Tools' "Toggle Device" button to demonstrate that your web application's responsiveness in both a desktop *and* a mobile format. Detailed instructions can be found below this stretch feature on the project page. 
+- [ ] Cards contain images in addition to or in place of text
+  - [ ] Some or all cards have images in place of or in addition to text
+- [ ] Cards have different visual styles such as color based on their category
+  - Example categories you can use:
+    - Difficulty: Easy/medium/hard
+    - Subject: Biology/Chemistry/Physics/Earth science
 
 The following **additional** features are implemented:
 
@@ -34,11 +41,14 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented required features:
 
-<img src='https://imgur.com/YCUeJ58' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ...  
-GIPHY CAPTURE
+<!-- Recommended tools:
+[Kap](https://getkap.co/) for macOS
+[ScreenToGif](https://www.screentogif.com/) for Windows
+[peek](https://github.com/phw/peek) for Linux. -->
 
 ## Notes
 
@@ -46,7 +56,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [2026] [Alexander Pulido]
+    Copyright [yyyy] [name of copyright owner]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
