@@ -1,14 +1,310 @@
-#root {
-  text-align: center;
+.container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+  box-sizing: border-box;
 }
 
-html, body{
-   background-color: rgb(37, 33, 33);
-   height: 100%;
-
+.hero-panel {
+  width: min(960px, 100%);
+  padding: 32px 24px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(12, 28, 42, 0.94), rgba(8, 18, 27, 0.94));
+  border: 1px solid rgba(159, 205, 229, 0.18);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.38);
 }
 
-h1 {
-  margin: 0;
+.deck-title {
+  color: #f8fbff;
+  margin: 0 0 10px;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  letter-spacing: 0.02em;
+}
+
+.deck-description {
+  color: #d9eaf6;
+  margin: 0 0 8px;
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
+  font-weight: 500;
+  max-width: 52rem;
+}
+
+.deck-total {
+  color: #94b6c9;
+  margin: 0 0 18px;
+  font-size: 1rem;
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.stat-chip {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(123, 173, 199, 0.12);
+  border: 1px solid rgba(123, 173, 199, 0.16);
+}
+
+.stat-label {
+  color: #9ec0d3;
+  font-size: 0.9rem;
+}
+
+.stat-value {
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.deck-instruction,
+.deck-progress {
+  color: #ffffff;
+  margin: 0 0 10px;
+}
+
+.deck-progress {
+  margin-bottom: 18px;
+}
+
+.card-container {
+  width: min(100%, 700px);
+  height: clamp(220px, 34vw, 320px);
+  perspective: 1200px;
+  border: 0;
+  background: none;
   padding: 0;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.card-container:hover .card-inner {
+  transform: rotateY(8deg) translateY(-2px);
+}
+
+.card-container.is-flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-container.is-flipped:hover .card-inner {
+  transform: rotateY(172deg) translateY(-2px);
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 24px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.28);
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.card-front {
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.22), transparent 32%),
+    linear-gradient(145deg, #1d9ec6, #165f92);
+}
+
+.card-back {
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.2), transparent 32%),
+    linear-gradient(145deg, #24af62, #196d43);
+  transform: rotateY(180deg);
+}
+
+.card-text {
+  color: #ffffff;
+  font-size: clamp(1.4rem, 3.2vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.25;
+  max-width: 90%;
+}
+
+.card-container:focus-visible .card-inner {
+  outline: 3px solid #f7c65f;
+  outline-offset: 5px;
+}
+
+.guess-form {
+  margin: 22px auto 10px;
+  width: min(100%, 700px);
+}
+
+.guess-label {
+  display: block;
+  text-align: left;
+  color: #dfeef8;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.guess-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.guess-input {
+  flex: 1;
+  min-width: 0;
+  border-radius: 14px;
+  border: 2px solid rgba(160, 197, 217, 0.18);
+  background: rgba(7, 18, 27, 0.72);
+  color: #ffffff;
+  padding: 14px 16px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.guess-input:focus {
+  border-color: #7bd0f4;
+  box-shadow: 0 0 0 4px rgba(123, 208, 244, 0.15);
+}
+
+.guess-input.is-correct {
+  border-color: #43d17c;
+}
+
+.guess-input.is-incorrect {
+  border-color: #ff7a7a;
+}
+
+.feedback-message {
+  width: min(100%, 700px);
+  margin: 0 auto 18px;
+  text-align: left;
+  font-weight: 600;
+}
+
+.feedback-message.correct {
+  color: #7df0a8;
+}
+
+.feedback-message.incorrect {
+  color: #ff9b9b;
+}
+
+.buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 18px 0 8px;
+}
+
+.btn {
+  background: #1b6f8d;
+  border-radius: 12px;
+  padding: 12px 16px;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: transform 0.15s ease, opacity 0.15s ease, background-color 0.15s ease;
+}
+
+.btn:hover:not(:disabled) {
+  cursor: pointer;
+  transform: translateY(-1px);
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(1.03);
+}
+
+.btn:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+}
+
+.primary-btn {
+  background: #ef8e2f;
+  color: #10202f;
+}
+
+.empty-state {
+  padding: 32px 20px 12px;
+  color: #ffffff;
+}
+
+.empty-state p {
+  color: #b8d3e3;
+}
+
+.mastered-section {
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(159, 205, 229, 0.12);
+  text-align: left;
+}
+
+.mastered-section h3 {
+  margin: 0 0 12px;
+  color: #ffffff;
+  font-size: 1.2rem;
+}
+
+.mastered-empty {
+  margin: 0;
+  color: #9ec0d3;
+}
+
+.mastered-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.mastered-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(123, 173, 199, 0.08);
+  border: 1px solid rgba(123, 173, 199, 0.12);
+  color: #e7f2f8;
+}
+
+@media (max-width: 720px) {
+  .hero-panel {
+    padding: 24px 16px;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .guess-controls {
+    flex-direction: column;
+  }
+
+  .mastered-item {
+    flex-direction: column;
+    gap: 6px;
+  }
 }
